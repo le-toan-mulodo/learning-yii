@@ -59,11 +59,11 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=simple_blog;',
+			'connectionString' => 'mysql:host=127.0.0.1;dbname=simple_blog;port=8889',
 			'tablePrefix'=>'tbl_',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',			
+			'password' => 'root',			
 			'charset' => 'utf8',
 		),
 		

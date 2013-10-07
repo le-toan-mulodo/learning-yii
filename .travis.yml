@@ -1,3 +1,4 @@
 language: php
 php:
   - 5.3
+script: phpunit --configuration protected/tests/phpunit.xml --coverage-text
