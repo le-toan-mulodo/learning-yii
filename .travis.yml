@@ -8,4 +8,4 @@ before_script:
   - pear install phpunit/DbUnit
   - pear install phpunit/PHPUnit_Selenium
   - pear install phpunit/PHPUnit_Story
-script: phpunit --configuration protected/tests/phpunit.xml --coverage-text
+script: sh -c 'cd protected/tests'&& phpunit unit
