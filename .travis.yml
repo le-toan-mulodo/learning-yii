@@ -10,7 +10,7 @@ before_script:
   - pear install phpunit/DbUnit
   - pear install phpunit/PHPUnit_Selenium
   - pear install phpunit/PHPUnit_Story
-   - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
+  - if [[ "$DB" == "mysql" ]]; then mysql -e "create database IF NOT EXISTS hello_world_test;" -uroot; fi
 script: 
   - phpunit -c protected/tests/ protected/tests/unit/PostTest.php
   - phpunit -c protected/tests/ protected/tests/functional/commentTest.php
