@@ -14,3 +14,4 @@ before_script:
 script: 
   - phpunit -c protected/tests/ protected/tests/unit/PostTest.php
   - phpunit -c protected/tests/ protected/tests/functional/commentTest.php
+  - mysql hello_world_test < data.mysql -uroot
