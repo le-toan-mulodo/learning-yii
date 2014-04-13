@@ -10,5 +10,5 @@
 // remove the following line when in production mode
 echo "toan";
 
-require_once($yii);
-Yii::createWebApplication($bif)->run();
+
+Yii::createWebApplication($b23if)->run();
