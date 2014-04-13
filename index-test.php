@@ -4,7 +4,7 @@
  * This file should be removed when the application is deployed for production.
  */
 
-//echo "Test testing branch";
+//echo "Test testing branch new";
 // change the following paths if necessary
 $yii=dirname(__FILE__).'/../../../../framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/test.php';
