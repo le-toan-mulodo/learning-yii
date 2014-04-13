@@ -11,4 +11,4 @@
 echo "toan";
 
 require_once($yii);
-Yii::createWebApplication($bif)->run();
+Yii::createWebApplication(we23)->run();
