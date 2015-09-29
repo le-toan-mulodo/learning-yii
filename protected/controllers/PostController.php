@@ -55,7 +55,7 @@ class PostController extends Controller
 		// 'criteria' => array('condition' => 'post_id=:post_id', 'params' => array(':post_id'=>$this->loadModel($id)->id)),
 		// 'pagination' => array('pageSize' => 10)
 		// )
-// 		
+//
 		// );
 		// $this->render('view',array(
 			// 'model'=>$this->loadModel($id),
@@ -65,11 +65,11 @@ class PostController extends Controller
 		$comment = $this->createComment($post);
 		$this->render('view', array('model'=>$post, 'comment'=>$comment));
 	}
-	
+
 	protected function createComment($post)
 	{
 		$comment = new Comment;
-		
+
 		if(isset($_POST['Comment']))
 		{
 			$comment->attributes = $_POST['Comment'];
@@ -150,7 +150,7 @@ class PostController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Post');
-		
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -181,8 +181,9 @@ class PostController extends Controller
 	public function loadModel($id)
 	{
 		$model=Post::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
+		if($model===null) {
+		    throw new CHttpException(404,'The requested page does not exist.');
+		}
 		return $model;
 	}
 
@@ -192,8 +193,7 @@ class PostController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='post-form')
-		{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='post-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}

@@ -200,8 +200,7 @@ class CommentController extends Controller
 	protected function performAjaxValidation($model)
 	{
 
-		if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form')
-		{
+		if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form') {
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
