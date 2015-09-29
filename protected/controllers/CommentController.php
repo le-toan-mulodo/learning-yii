@@ -8,7 +8,7 @@ class CommentController extends Controller
 	 */
 	public $layout='//layouts/column2';
 	private $_project = null;
-	
+
 	public function loadProject($post_id)
 	{
 		if($this->_project === null)
@@ -18,10 +18,10 @@ class CommentController extends Controller
 			{
 				throw new CHttpExeception(404, "the requested user does not exist.");
 			}
-			
+
 		}
 		return $this->_project;
-		
+
 	}
 
 	/**
@@ -34,21 +34,21 @@ class CommentController extends Controller
 			'UserContext + create', // we only allow deletion via POST request
 		);
 	}
-	
+
 	public function filterUserContext($filterChain)
 	{
 		if(isset($_GET['post_id']))
 		{
 			$this->loadProject($_GET['post_id']);
-		}	
+		}
 		else
 		{
 			throw new CHttpException(403,'Must specify a project before performing this action.');
 		}
-		
+
 		$filterChain->run();
 	}
-	
+
 
 	/**
 	 * Specifies the access control rules.
@@ -186,17 +186,20 @@ class CommentController extends Controller
 	public function loadModel($id)
 	{
 		$model=Comment::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
+		if($model===null) {
+		    throw new CHttpException(404,'The requested page does not exist.');
+		}
 		return $model;
 	}
 
 	/**
 	 * Performs the AJAX validation.
+	 *
 	 * @param Comment $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
+
 		if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form')
 		{
 			echo CActiveForm::validate($model);
